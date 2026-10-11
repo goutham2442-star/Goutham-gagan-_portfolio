@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#170C79">
+<meta name="description" content="Goutham Gagan — Computer Science and Technology student building web applications, machine-learning projects, and cybersecurity tools.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Goutham Gagan — Developer Portfolio">
+<meta property="og:description" content="Explore Goutham Gagan's projects in web development, machine learning, and cybersecurity.">
+<meta property="og:url" content="https://github.com/goutham2442-star">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23170C79'/%3E%3Ctext x='32' y='42' font-size='30' font-family='Arial,sans-serif' font-weight='700' text-anchor='middle' fill='%238ACBD0'%3EGG%3C/text%3E%3C/svg%3E">
+<title>Goutham Gagan — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#170C79;--cream:#EFE3CA;--teal:#56B6C6;--light:#8ACBD0;--muted:rgba(23,12,121,.62);--transition:.4s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--navy);overflow-x:hidden}
+a{color:inherit}
+button,input,textarea{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+::selection{background:var(--teal);color:var(--navy)}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--cream)}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:5px}
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;transform:translate(-50%,-50%);opacity:0;visibility:hidden;contain:layout style;}
+@media (hover: hover) and (pointer: fine) {
+  .cursor-ring{display:block;visibility:visible;opacity:1;width:34px;height:34px;border:1.5px solid rgba(23,12,121,.85);border-radius:50%;z-index:99998;box-shadow:0 0 0 5px rgba(86,182,198,.12);transition:width .22s ease,height .22s ease,border-radius .22s ease,border-color .22s ease,background .22s ease;}
+  .cursor-dot{display:block;visibility:visible;opacity:1;width:9px;height:9px;background:var(--teal);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);filter:drop-shadow(0 0 5px rgba(86,182,198,.7));z-index:99999;}
+}
+/* A little editorial sparkle cursor: diamond core + orbit ring. Native pointer stays available. */
+
+.cursor-ring::before{content:"";position:absolute;width:5px;height:5px;right:0;top:1px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px var(--cream)}
+.cursor-ring::after{content:"";position:absolute;inset:5px;border:1px dashed rgba(23,12,121,.22);border-radius:50%;transition:opacity .2s,transform .28s}
+nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(239,227,202,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(23,12,121,.1);transition:padding var(--transition),box-shadow var(--transition)}
+nav.scrolled{padding:.8rem 4rem;box-shadow:0 4px 28px rgba(23,12,121,.08)}
+.nav-logo,.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:600;letter-spacing:.04em;text-decoration:none}
+.nav-logo span,.footer-logo span{color:var(--teal)}
+.nav-links{display:flex;gap:1.8rem;align-items:center;list-style:none}
+.nav-links a{font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;position:relative}
+.nav-links a:after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--teal);transition:width var(--transition)}
+.nav-links a:hover:after{width:100%}
+.menu-toggle{display:none;background:none;border:1px solid rgba(23,12,121,.2);border-radius:4px;color:var(--navy);padding:.55rem;cursor:pointer}
+#hero{min-height:100svh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:2rem;padding:8rem 4rem 4rem;position:relative;overflow:hidden}
+.hero-bg-shape{position:absolute;right:-10vw;top:-8vh;width:58vw;height:115vh;background:linear-gradient(145deg,var(--navy),#2A1DA8 55%,var(--teal));border-radius:62% 38% 50% 50%/40% 40% 60% 60%;opacity:.13;animation:morphBlob 10s ease-in-out infinite alternate}
+@keyframes morphBlob{to{border-radius:42% 58% 65% 35%/55% 30% 70% 45%}}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(23,12,121,.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(23,12,121,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-left,.hero-right{position:relative;z-index:1}
+.hero-tag,.section-tag{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
+.hero-tag:before,.section-tag:before{content:"";display:block;width:24px;height:1.5px;background:currentColor}
+.hero-name,.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.08}
+.hero-name{font-size:clamp(3.4rem,6.5vw,6rem);letter-spacing:-.02em}
+.hero-name strong{display:block;font-weight:600}
+.hero-role{font-size:.95rem;line-height:1.8;letter-spacing:.03em;color:var(--muted);margin:1.1rem 0 2rem}
+.hero-cta-group{display:flex;gap:.85rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.85rem 1.35rem;border-radius:3px;font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:transform var(--transition),background var(--transition),color var(--transition),box-shadow var(--transition);cursor:pointer}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{background:var(--navy);color:var(--cream);border:1px solid var(--navy)}
+.btn-primary:hover{background:#2A1DA8;box-shadow:0 12px 28px rgba(23,12,121,.2)}
+.btn-outline{border:1.5px solid var(--navy);color:var(--navy);background:transparent}
+.btn-outline:hover{background:var(--navy);color:var(--cream)}
+.hero-right{display:flex;justify-content:center;align-items:center}
+.avatar-card{width:min(320px,100%);aspect-ratio:4/5;background:linear-gradient(155deg,var(--navy),#2A1DA8 60%,var(--teal));border-radius:6px 60px 6px 60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;padding:2.5rem;box-shadow:0 40px 80px rgba(23,12,121,.2);position:relative;overflow:hidden}
+.avatar-card:before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at 30% 30%,rgba(138,203,208,.18),transparent 65%)}
+.avatar-initials{width:96px;height:96px;border-radius:50%;background:rgba(239,227,202,.12);border:2px solid rgba(239,227,202,.3);display:grid;place-items:center;font:600 2.4rem 'Cormorant Garamond',serif;color:var(--cream);position:relative}
+.avatar-name-card{font:600 1.6rem 'Cormorant Garamond',serif;color:var(--cream);text-align:center;position:relative}
+.avatar-sub{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(239,227,202,.7);text-align:center;position:relative}
+.avatar-badge{display:flex;align-items:center;gap:.5rem;background:rgba(86,182,198,.2);border:1px solid rgba(86,182,198,.4);border-radius:50px;padding:.4rem .8rem;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);position:relative}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--light);box-shadow:0 0 0 4px rgba(138,203,208,.15)}
+section{padding:6.5rem 4rem;position:relative}
+.section-title{font-size:clamp(2.3rem,4vw,3.5rem);color:var(--navy);margin-bottom:2.5rem}
+.section-title em{font-style:italic;color:var(--teal)}
+#about,#skills{background:var(--navy)}
+#about .section-tag,#skills .section-tag{color:var(--light)}
+#about .section-title,#skills .section-title{color:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{font-size:.98rem;line-height:1.9;color:rgba(239,227,202,.78);font-weight:300;margin-bottom:1.2rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-box{background:rgba(239,227,202,.06);border:1px solid rgba(239,227,202,.12);border-radius:4px;padding:1.5rem;transition:var(--transition)}
+.stat-box:hover{background:rgba(86,182,198,.1);border-color:rgba(86,182,198,.3);transform:translateY(-4px)}
+.stat-num{font:600 2.6rem 'Cormorant Garamond',serif;color:var(--light);line-height:1.1;margin-bottom:.4rem}
+.stat-label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(239,227,202,.6)}
+.edu-timeline{position:relative;padding-left:2rem;max-width:850px}
+.edu-timeline:before{content:"";position:absolute;left:0;top:.5rem;bottom:.5rem;width:2px;background:linear-gradient(var(--teal),var(--navy))}
+.edu-item{position:relative;margin-bottom:2.6rem;opacity:0;transform:translateX(-15px);transition:opacity .6s,transform .6s}
+.edu-item.visible{opacity:1;transform:none}
+.edu-item:last-child{margin-bottom:0}
+.edu-dot{position:absolute;left:-2.42rem;top:.35rem;width:13px;height:13px;border-radius:50%;background:var(--teal);border:2px solid var(--cream);box-shadow:0 0 0 3px rgba(86,182,198,.2)}
+.edu-year{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:.35rem}
+.edu-degree{font:600 1.6rem 'Cormorant Garamond',serif;line-height:1.3;margin-bottom:.25rem}
+.edu-institution{font-size:.88rem;color:var(--muted)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.skill-group{background:rgba(239,227,202,.05);border:1px solid rgba(239,227,202,.1);border-radius:6px;padding:1.7rem;transition:var(--transition)}
+.skill-group:hover{background:rgba(86,182,198,.08);border-color:rgba(86,182,198,.25);transform:translateY(-5px)}
+.skill-group-icon{width:42px;height:42px;border-radius:8px;background:rgba(86,182,198,.15);display:grid;place-items:center;margin-bottom:1rem;color:var(--light);font-size:1.15rem}
+.skill-group-title{font:600 1.25rem 'Cormorant Garamond',serif;color:var(--cream);margin-bottom:1rem}
+.skill-pills{display:flex;flex-wrap:wrap;gap:.45rem}
+.pill{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;padding:.35rem .7rem;border-radius:50px;background:rgba(239,227,202,.07);border:1px solid rgba(239,227,202,.15);color:rgba(239,227,202,.8)}
+#projects{background:#f5ecd9}
+.project-intro{max-width:650px;color:var(--muted);line-height:1.8;margin-top:-1.4rem;margin-bottom:2.2rem}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.project-card{display:flex;flex-direction:column;min-height:270px;padding:1.7rem;background:rgba(255,255,255,.35);border:1px solid rgba(23,12,121,.13);border-radius:6px;transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition)}
+.project-card:hover{transform:translateY(-5px);box-shadow:0 16px 35px rgba(23,12,121,.09);border-color:rgba(86,182,198,.6)}
+.project-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+.project-number{font:600 1.4rem 'Cormorant Garamond',serif;color:var(--teal)}
+.project-status{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(23,12,121,.15);border-radius:30px;padding:.3rem .6rem}
+.project-card h3{font:600 1.55rem 'Cormorant Garamond',serif;margin-bottom:.6rem}
+.project-card p{font-size:.9rem;line-height:1.75;color:var(--muted);margin-bottom:1.2rem}
+.project-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;margin-bottom:1.2rem}
+.project-tags span{font-size:.68rem;background:rgba(86,182,198,.12);border:1px solid rgba(86,182,198,.3);padding:.3rem .55rem;border-radius:3px}
+.project-links{display:flex;gap:1rem;flex-wrap:wrap}
+.project-links a{font-size:.75rem;font-weight:600;letter-spacing:.05em;text-decoration:none;border-bottom:1px solid var(--teal);padding-bottom:2px}
+.project-links a:hover{color:#2A1DA8}
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.profile-card{display:flex;gap:1.1rem;align-items:flex-start;padding:1.7rem;border:1px solid rgba(239,227,202,.15);background:rgba(239,227,202,.05);border-radius:6px;text-decoration:none;transition:var(--transition)}
+.profile-card:hover{transform:translateY(-4px);border-color:rgba(86,182,198,.5);background:rgba(86,182,198,.08)}
+.profile-icon{flex:0 0 48px;width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:rgba(86,182,198,.15);color:var(--light);font-weight:600;font-size:1rem}
+.profile-card h3{font:600 1.35rem 'Cormorant Garamond',serif;color:var(--cream);margin-bottom:.3rem}
+.profile-card p{font-size:.83rem;line-height:1.65;color:rgba(239,227,202,.68);margin-bottom:.65rem}
+.profile-link{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--light)}
+#contact{background:var(--cream)}
+.contact-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:3rem;align-items:start}
+.contact-copy p{font-size:.95rem;line-height:1.85;color:var(--muted);margin-bottom:1.5rem}
+.contact-details{display:grid;gap:.8rem}
+.contact-detail{font-size:.86rem;line-height:1.6}
+.contact-detail strong{display:block;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(23,12,121,.48);margin-bottom:.15rem}
+.contact-detail a{text-decoration:none;overflow-wrap:anywhere}
+.contact-detail a:hover{color:#2A1DA8}
+.contact-form{padding:1.8rem;background:rgba(255,255,255,.38);border:1px solid rgba(23,12,121,.12);border-radius:6px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.form-field label{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.form-field input,.form-field textarea{width:100%;border:1px solid rgba(23,12,121,.2);border-radius:3px;padding:.8rem .85rem;background:rgba(255,255,255,.55);color:var(--navy);outline:none;transition:border-color var(--transition),box-shadow var(--transition)}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(86,182,198,.12)}
+.form-field textarea{min-height:140px;resize:vertical}
+.contact-actions{display:flex;gap:.65rem;flex-wrap:wrap;align-items:center}
+.contact-actions .btn{min-height:44px}
+.form-note{font-size:.73rem;line-height:1.6;color:var(--muted);margin-top:.9rem}
+.form-status{font-size:.82rem;line-height:1.5;margin-top:.8rem;min-height:1.2rem}
+footer{background:var(--navy);padding:1.8rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.footer-logo{color:var(--cream);font-size:1.3rem}
+footer p{font-size:.72rem;letter-spacing:.06em;color:rgba(239,227,202,.5);text-align:right}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal,.edu-item{opacity:1;transform:none}}
+@media(hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}body{cursor:auto}}
+@media(max-width:950px){nav{padding:1rem 1.6rem}nav.scrolled{padding:.75rem 1.6rem}#hero{padding:7rem 2rem 4rem;gap:1rem}section{padding:5rem 2rem}.about-grid{gap:2rem}.skills-grid{grid-template-columns:repeat(2,1fr)}footer{padding:1.5rem 2rem}}
+@media(max-width:700px){.menu-toggle{display:grid;place-items:center}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;padding:1rem 1.5rem 1.4rem;background:rgba(239,227,202,.98);border-bottom:1px solid rgba(23,12,121,.12);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links li a{display:block;padding:.85rem .25rem}.nav-links a:after{display:none}#hero{grid-template-columns:1fr;text-align:center;padding:7rem 1.4rem 4rem;gap:2.5rem}.hero-right{order:-1}.avatar-card{width:230px;border-top-right-radius:45px}.hero-tag{justify-content:center}.hero-cta-group{justify-content:center}.hero-name{font-size:clamp(3.3rem,14vw,5rem)}section{padding:4.5rem 1.4rem}.about-grid,.contact-layout{grid-template-columns:1fr;gap:2rem}.skills-grid,.project-grid,.profile-grid{grid-template-columns:1fr}.project-card{min-height:unset}.section-title{margin-bottom:2rem}.contact-form{padding:1.2rem}.form-row{grid-template-columns:1fr;gap:0}footer{flex-direction:column;text-align:center}footer p{text-align:center}}
+
+/* Custom cursor enhancement: never hide the reliable native cursor. */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-dot, .cursor-ring { will-change: left, top, width, height, transform; }
+  body.cursor-hover .cursor-dot { width: 7px; height: 7px; }
+  body.cursor-hover .cursor-ring {
+    width: 46px; height: 46px; border-radius: 15px;
+    border-color: var(--teal); background: rgba(86,182,198,.13);
+    box-shadow:0 0 0 6px rgba(86,182,198,.08);
+  }
+  body.cursor-hover .cursor-ring::before { width:6px;height:6px;right:-2px;top:-2px; }
+  body.cursor-hover .cursor-ring::after { inset:9px;opacity:.5;transform:rotate(45deg); }
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none !important; }
+  body, a, button, input, textarea { cursor: auto !important; }
+}
+
+
+/* Additive finishing touches */
+.project-card, .skill-group, .profile-card, .stat-box { transform-origin: center; }
+.project-card:focus-within, .skill-group:focus-within, .profile-card:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+}
+.avatar-card { isolation: isolate; }
+.avatar-card::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(239,227,202,.16);
+  border-radius: 3px 46px 3px 46px;
+  pointer-events: none;
+}
+
+
+/* Portfolio polish: academic scorecards, hero highlights, and subtle depth */
+.hero-highlights {
+  display:flex; flex-wrap:wrap; gap:1.6rem; margin-top:2.2rem;
+}
+.hero-highlights div { display:flex; flex-direction:column; gap:.2rem; padding-left:.8rem; border-left:2px solid var(--teal); }
+.hero-highlights strong { font:600 1.25rem 'Cormorant Garamond',serif; letter-spacing:.02em; }
+.hero-highlights span { color:var(--muted); font-size:.68rem; letter-spacing:.09em; text-transform:uppercase; }
+.academics-section { background:linear-gradient(135deg,#f8f0df 0%,#EFE3CA 55%,#e6f3ef 100%); overflow:hidden; }
+.academics-intro { color:var(--muted); line-height:1.8; max-width:620px; margin-top:-1.4rem; margin-bottom:2rem; }
+.academic-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.1rem; }
+.academic-card {
+  position:relative; overflow:hidden; min-height:205px; padding:1.7rem;
+  border:1px solid rgba(23,12,121,.13); border-radius:7px;
+  background:rgba(255,255,255,.55); box-shadow:0 12px 30px rgba(23,12,121,.04);
+  transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);
+}
+.academic-card:hover { transform:translateY(-6px); box-shadow:0 20px 42px rgba(23,12,121,.1); border-color:rgba(86,182,198,.65); }
+.academic-feature { background:linear-gradient(145deg,var(--navy),#2A1DA8); color:var(--cream); }
+.academic-label { font-size:.69rem; text-transform:uppercase; letter-spacing:.13em; font-weight:600; color:var(--muted); }
+.academic-feature .academic-label { color:rgba(239,227,202,.7); }
+.academic-number { font:600 clamp(2.7rem,4vw,3.8rem)/1.1 'Cormorant Garamond',serif; margin:.85rem 0 .45rem; letter-spacing:-.025em; }
+.academic-number span { font:400 .95rem 'Jost',sans-serif; opacity:.62; margin-left:.25rem; letter-spacing:0; }
+.academic-card p { color:var(--muted); font-size:.82rem; line-height:1.6; }
+.academic-feature p { color:rgba(239,227,202,.72); }
+.academic-meter { height:4px; border-radius:20px; background:rgba(23,12,121,.1); margin-top:1.2rem; overflow:hidden; }
+.academic-feature .academic-meter { background:rgba(239,227,202,.15); }
+.academic-meter span { display:block; height:100%; border-radius:20px; background:var(--teal); }
+.academic-note { font-size:.73rem; color:var(--muted); line-height:1.6; margin-top:1rem; }
+.project-card:before {
+  content:""; position:absolute; top:0; left:0; width:100%; height:3px;
+  background:linear-gradient(90deg,var(--teal),var(--navy)); transform:scaleX(0);
+  transform-origin:left; transition:transform var(--transition);
+}
+.project-card { position:relative; overflow:hidden; }
+.project-card:hover:before { transform:scaleX(1); }
+@media(max-width:850px) {
+  .academic-grid { grid-template-columns:1fr 1fr; }
+  .academic-feature { grid-column:1/-1; }
+  .hero-highlights { justify-content:center; }
+}
+@media(max-width:700px) {
+  .hero-highlights { gap:1rem; justify-content:center; }
+  .hero-highlights div { padding-left:.55rem; }
+  .academic-grid { grid-template-columns:1fr; }
+  .academic-feature { grid-column:auto; }
+  .academic-card { min-height:unset; }
+}
+
+
+
+/* UX polish: clearer navigation, accessible focus, and refined interactions */
+:root { --focus-ring: 0 0 0 3px rgba(86,182,198,.28); }
+.skip-link {
+  position:fixed; left:1rem; top:-5rem; z-index:1000;
+  padding:.8rem 1rem; border-radius:4px; background:var(--navy); color:var(--cream);
+  text-decoration:none; font-size:.85rem; transition:top .2s ease;
+}
+.skip-link:focus { top:1rem; }
+.scroll-progress {
+  position:fixed; top:0; left:0; width:100%; height:3px; z-index:300;
+  transform-origin:left; transform:scaleX(0);
+  background:linear-gradient(90deg,var(--teal),var(--navy)); pointer-events:none;
+}
+.nav-links a[aria-current="location"] { color:#287f91; }
+.nav-links a[aria-current="location"]:after { width:100%; }
+.btn, .menu-toggle, .contact-card, .profile-card, .project-links a { touch-action:manipulation; }
+.btn:focus-visible, .menu-toggle:focus-visible, .nav-links a:focus-visible {
+  outline:3px solid var(--teal); outline-offset:4px;
+}
+.project-card, .academic-card, .profile-card, .contact-form, .skill-group {
+  transition-timing-function:cubic-bezier(.2,.7,.2,1);
+}
+.form-field input, .form-field textarea { font-size:16px; }
+.form-status:empty { display:none; }
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { display:none; }
+  .
+}
+
+
+.leetcode-live { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.45rem; margin-top:.8rem; max-width:310px; }
+.leetcode-metric { border:1px solid rgba(138,203,208,.22); background:rgba(23,12,121,.16); border-radius:4px; padding:.5rem .6rem; }
+.leetcode-metric strong { display:block; color:var(--cream); font:600 1.05rem 'Cormorant Garamond',serif; }
+.leetcode-metric span { color:rgba(239,227,202,.58); font-size:.6rem; text-transform:uppercase; letter-spacing:.08em; }
+.leetcode-loading,.leetcode-unavailable { font-size:.72rem; line-height:1.5; color:rgba(239,227,202,.64); }
+
+
+/* LeetCode live dashboard — featured full-width panel */
+.leetcode-card { position:relative; isolation:isolate; overflow:hidden; display:block; width:min(100%,820px); margin:0 auto 1.35rem; padding:1.15rem 1.3rem 1rem; border:1px solid rgba(138,203,208,.18); border-radius:14px; background:linear-gradient(135deg,rgba(21,15,83,.78),rgba(19,26,91,.82)); box-shadow:0 12px 30px rgba(0,0,0,.12); }
+.leetcode-card:before { content:""; position:absolute; z-index:-1; left:0; top:0; width:100%; height:3px; background:linear-gradient(90deg,#f4b860,#72c7d2,#9b8cff); opacity:.9; }
+.leetcode-card:hover { transform:none; border-color:rgba(138,203,208,.38); }
+.leetcode-card-topline { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
+.leetcode-brand { display:flex; align-items:center; gap:.8rem; min-width:0; }
+.leetcode-brand .profile-icon { flex-basis:42px; width:42px; height:42px; font-size:.82rem; border:1px solid rgba(138,203,208,.25); border-radius:12px; background:linear-gradient(145deg,rgba(244,184,96,.14),rgba(114,199,210,.08)); color:#f5d39a; }
+.leetcode-eyebrow { display:block; margin-bottom:.2rem; color:#8bd6dd; font-size:.56rem; font-weight:600; letter-spacing:.16em; }
+.leetcode-card h3 { margin:0; font:600 clamp(1.35rem,2.4vw,1.7rem)/1.15 'Cormorant Garamond',serif; color:var(--cream); }
+.leetcode-subtitle { font:400 .52em 'Jost',sans-serif; color:rgba(239,227,202,.58); }
+.leetcode-card p { margin:.25rem 0 0; font-size:.76rem; line-height:1.5; color:rgba(239,227,202,.62); }
+.live-indicator { display:inline-flex; align-items:center; gap:.4rem; font-size:.55rem; letter-spacing:.1em; font-weight:600; color:#a5e6d0; padding:.38rem .58rem; border:1px solid rgba(114,214,161,.18); border-radius:50px; background:rgba(114,214,161,.045); white-space:nowrap; }
+.live-indicator span { width:6px; height:6px; border-radius:50%; background:#72D6A1; box-shadow:0 0 0 3px rgba(114,214,161,.1); }
+.leetcode-live { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.6rem; margin:1rem 0 .9rem; max-width:none; }
+.leetcode-metric { position:relative; min-width:0; min-height:78px; display:flex; flex-direction:column; justify-content:center; padding:.75rem .9rem; border:1px solid rgba(211,221,255,.1); border-radius:10px; background:rgba(255,255,255,.028); transition:background .2s ease,border-color .2s ease,transform .2s ease; }
+.leetcode-metric:hover { transform:translateY(-3px); background:rgba(255,255,255,.065); border-color:rgba(211,221,255,.24); }
+.leetcode-metric strong { display:block; color:#fff8e9; font:600 clamp(1.45rem,2.4vw,1.85rem)/1.05 'Cormorant Garamond',serif; font-variant-numeric:tabular-nums; letter-spacing:-.025em; }
+.leetcode-metric span { display:block; margin-top:.4rem; color:rgba(239,227,202,.62); font-size:.58rem; font-weight:500; text-transform:uppercase; letter-spacing:.12em; }
+.leetcode-metric.total { border-color:rgba(114,199,210,.34); background:linear-gradient(145deg,rgba(114,199,210,.13),rgba(114,199,210,.035)); }
+.leetcode-metric.total span { color:#8bd6dd; }
+.leetcode-metric.easy strong { color:#7ee0a3; }
+.leetcode-metric.medium strong { color:#f4c56b; }
+.leetcode-metric.hard strong { color:#ff8f9d; }
+.leetcode-card-footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.7rem; padding-top:.75rem; border-top:1px solid rgba(239,227,202,.09); }
+.leetcode-updated { color:rgba(239,227,202,.5); font-size:.66rem; }
+.leetcode-actions { display:flex; align-items:center; gap:1.1rem; flex-wrap:wrap; }
+.leetcode-refresh { border:0; background:transparent; color:var(--light); font:500 .82rem 'Jost',sans-serif; cursor:pointer; padding:.55rem 0; }
+.leetcode-refresh:hover { color:var(--cream); text-decoration:underline; }
+.leetcode-profile-button { display:inline-flex; align-items:center; gap:.45rem; padding:.62rem .8rem; border-radius:8px; background:#e9f6f4; color:#17164e; font-size:.7rem; font-weight:600; text-decoration:none; transition:var(--transition); }
+.leetcode-profile-button:hover { transform:translateY(-2px); background:var(--cream); }
+.leetcode-loading { grid-column:1/-1; display:flex; align-items:center; gap:.75rem; min-height:110px; color:rgba(239,227,202,.7); font-size:.9rem; }
+.loading-spinner { width:18px; height:18px; flex:0 0 18px; border:2px solid rgba(138,203,208,.25); border-top-color:var(--light); border-radius:50%; animation:leetcode-spin .8s linear infinite; }
+@keyframes leetcode-spin { to { transform:rotate(360deg); } }
+.leetcode-error { grid-column:1/-1; padding:1.2rem 1.3rem; border:1px solid rgba(239,174,120,.25); border-radius:8px; color:rgba(239,227,202,.78); font-size:.88rem; line-height:1.7; }
+.leetcode-error strong { display:block; color:var(--cream); margin-bottom:.25rem; }
+.leetcode-svg-fallback { display:block; width:100%; max-width:100%; margin:.8rem 0 0; border-radius:8px; }
+.leetcode-refresh:disabled { opacity:.55; cursor:wait; }
+@media(max-width:700px) {
+  .leetcode-card { padding:1rem; }
+  .leetcode-card-topline { align-items:flex-start; }
+  .leetcode-brand { align-items:flex-start; }
+  .leetcode-brand .profile-icon { flex-basis:40px; width:40px; height:40px; }
+  .leetcode-subtitle { display:block; margin-top:.25rem; }
+  .leetcode-live { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem; margin:.85rem 0 .75rem; }
+  .leetcode-metric { min-height:72px; padding:.7rem; }
+  .leetcode-metric strong { font-size:1.65rem; }
+  .leetcode-metric span { font-size:.56rem; }
+  .leetcode-card-footer { align-items:flex-start; }
+  .leetcode-actions { width:100%; justify-content:space-between; }
+}
+@media(max-width:390px) { .live-indicator { margin-left:0; } .leetcode-actions { align-items:flex-start; flex-direction:column; gap:.45rem; } .contact-actions{flex-direction:column;align-items:stretch}.contact-actions .btn{width:100%} }
+@media(max-width:360px){.nav-logo{font-size:1.35rem}.menu-toggle{padding:.45rem}#hero{padding-left:1rem;padding-right:1rem}section{padding-left:1rem;padding-right:1rem}.leetcode-card{padding:.85rem}.leetcode-metric{padding:.6rem}.leetcode-metric strong{font-size:1.45rem}}
+@media (prefers-reduced-motion: reduce){.hero-bg-shape{animation:none}.loading-spinner{animation:none}.cursor-dot,.cursor-ring{display:none}}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div><div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+<nav id="navbar" aria-label="Main navigation">
+  <a href="#hero" class="nav-logo" aria-label="Goutham Gagan home">GG<span>.</span></a>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li><li><a href="#education">Education</a></li><li><a href="#academics">Academics</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#profiles">Profiles</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main id="main-content" tabindex="-1">
+<section id="hero">
+  <div class="hero-bg-shape" aria-hidden="true"></div><div class="hero-grid-lines" aria-hidden="true"></div>
+  <div class="hero-left">
+    <div class="hero-tag">Portfolio · 2026</div>
+    <h1 class="hero-name">Goutham <strong>Gagan</strong></h1>
+    <p class="hero-role">B.Tech – Computer Science &amp; Technology<br>Takshashila University · Aspiring Developer</p>
+    <div class="hero-cta-group">
+      <a href="#contact" class="btn btn-primary">Get in touch <span aria-hidden="true">↗</span></a>
+      <a href="#projects" class="btn btn-outline">Explore projects <span aria-hidden="true">↓</span></a>
+      <a href="resume.pdf" class="btn btn-outline" download>Download resume <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-highlights" aria-label="Portfolio highlights">
+      <div><strong>8.67</strong><span>Year 1 CGPA</span></div>
+      <div><strong>AI + Web</strong><span>Project focus</span></div>
+      <div><strong>CST</strong><span>Undergraduate</span></div>
+    </div>
+  </div>
+  <div class="hero-right"><div class="avatar-card">
+    <div class="avatar-initials">GG</div><div class="avatar-name-card">Goutham Gagan</div><div class="avatar-sub">CST Student · Developer</div>
+    <div class="avatar-badge"><span class="pulse" aria-hidden="true"></span> Open to Opportunities</div>
+  </div></div>
+</section>
+
+<section id="about">
+  <div class="section-tag reveal">About Me</div><h2 class="section-title reveal">Curious mind, <em>crafting</em><br>digital solutions.</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I am pursuing my B.Tech in Computer Science &amp; Technology (CST) at Takshashila University, with interests in programming, web development, machine learning, and problem-solving.</p>
+      <p>I enjoy turning concepts into practical projects, exploring new tools, and learning how software can solve real-world problems. I am continuing to strengthen my fundamentals through coursework, project work, and coding practice.</p>
+      <p>My current focus is building useful applications, improving my development workflow, and collaborating with others on meaningful technology projects.</p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-box"><div class="stat-num">3+</div><div class="stat-label">Core languages explored</div></div>
+      <div class="stat-box"><div class="stat-num">B.Tech</div><div class="stat-label">CST student</div></div>
+      <div class="stat-box"><div class="stat-num">∞</div><div class="stat-label">Learning mindset</div></div>
+      <div class="stat-box"><div class="stat-num">1</div><div class="stat-label">Goal: create impact</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-tag reveal">Education</div><h2 class="section-title reveal">Academic <em>Journey</em></h2>
+  <div class="edu-timeline">
+    <article class="edu-item"><div class="edu-dot" aria-hidden="true"></div><div class="edu-year">Currently pursuing</div><h3 class="edu-degree">Bachelor of Technology (B.Tech) – CST</h3><div class="edu-institution">Takshashila University</div></article>
+    <article class="edu-item"><div class="edu-dot" aria-hidden="true"></div><div class="edu-year">Completed</div><h3 class="edu-degree">Higher Secondary Education – Class 12</h3><div class="edu-institution">Edify Junior College</div></article>
+  </div>
+</section>
+
+
+<section id="academics" class="academics-section">
+  <div class="section-tag reveal">Academic Performance</div>
+  <h2 class="section-title reveal">Consistency with <em>purpose.</em></h2>
+  <p class="academics-intro reveal">A snapshot of my first-year academic performance at Takshashila University.</p>
+  <div class="academic-grid">
+    <article class="academic-card academic-feature reveal">
+      <div class="academic-label">Year 1 CGPA</div>
+      <div class="academic-number">8.67<span>/10</span></div>
+      <p>Overall first-year academic performance</p>
+      <div class="academic-meter"><span style="width:86.7%"></span></div>
+    </article>
+    <article class="academic-card reveal">
+      <div class="academic-label">Semester 1 · SGPA</div>
+      <div class="academic-number">9.02<span>/10</span></div>
+      <p>Strong start to the B.Tech journey</p>
+      <div class="academic-meter"><span style="width:90.2%"></span></div>
+    </article>
+    <article class="academic-card reveal">
+      <div class="academic-label">Semester 2 · SGPA</div>
+      <div class="academic-number">8.31<span>/10</span></div>
+      <p>Building consistency across coursework</p>
+      <div class="academic-meter"><span style="width:83.1%"></span></div>
+    </article>
+  </div>
+  <p class="academic-note">Figures shown as listed in my resume. SGPA refers to semester performance; CGPA refers to cumulative performance.</p>
+</section>
+
+<section id="skills">
+  <div class="section-tag reveal">Technical Skills</div><h2 class="section-title reveal">Technologies I <em>Work With</em></h2>
+  <div class="skills-grid">
+    <article class="skill-group reveal"><div class="skill-group-icon" aria-hidden="true">⌘</div><h3 class="skill-group-title">Programming</h3><div class="skill-pills"><span class="pill">Python</span><span class="pill">C</span><span class="pill">Java</span><span class="pill">JavaScript</span></div></article>
+    <article class="skill-group reveal"><div class="skill-group-icon" aria-hidden="true">◎</div><h3 class="skill-group-title">Web Development</h3><div class="skill-pills"><span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span><span class="pill">Bootstrap</span></div></article>
+    <article class="skill-group reveal"><div class="skill-group-icon" aria-hidden="true">✳</div><h3 class="skill-group-title">Data &amp; ML</h3><div class="skill-pills"><span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">Scikit-learn</span><span class="pill">Regression</span></div></article>
+    <article class="skill-group reveal"><div class="skill-group-icon" aria-hidden="true">⌘</div><h3 class="skill-group-title">Tools &amp; Workflow</h3><div class="skill-pills"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">VS Code</span><span class="pill">Jupyter</span></div></article>
+    <article class="skill-group reveal"><div class="skill-group-icon" aria-hidden="true">◇</div><h3 class="skill-group-title">Problem Solving</h3><div class="skill-pills"><span class="pill">DSA Practice</span><span class="pill">Debugging</span><span class="pill">Logical Thinking</span></div></article>
+    <article class="skill-group reveal"><div class="skill-group-icon" aria-hidden="true">✦</div><h3 class="skill-group-title">Collaboration</h3><div class="skill-pills"><span class="pill">Teamwork</span><span class="pill">Documentation</span><span class="pill">Project Planning</span></div></article>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-tag reveal">Experience</div><h2 class="section-title reveal">Learning through <em>real work</em></h2>
+  <article class="skill-group reveal" style="max-width:900px;margin:0 auto;padding:1.6rem 1.8rem">
+    <div class="project-top"><span class="project-number">WEB DEVELOPMENT INTERNSHIP</span><span class="project-status">InAmigos Foundation</span></div>
+    <h3 class="skill-group-title" style="font-size:1.35rem">Web Development Intern</h3>
+    <p style="color:var(--muted);line-height:1.8;margin:.5rem 0 1rem">Worked on NGO-focused web design tasks, including an awareness webpage, website improvement analysis, AI-assisted website generation, and highlighting donation and volunteer features. Created project deliverables using HTML, CSS, Figma, and website-building tools.</p>
+    <div class="project-tags"><span>HTML</span><span>CSS</span><span>Figma</span><span>Website Design</span><span>NGO Awareness</span></div>
+    <div class="project-links"><a href="https://github.com/goutham2442-star/InAmigos-Foundation-Official" target="_blank" rel="noopener noreferrer">View project repository ↗</a></div>
+  </article>
+</section>
+
+<section id="projects">
+  <div class="section-tag reveal">Selected Work</div><h2 class="section-title reveal">Projects with <em>purpose</em></h2>
+  <p class="project-intro reveal">Selected work across cybersecurity, web development, machine learning, and productivity tools.</p>
+  <div class="project-grid">
+    <article class="project-card reveal"><div class="project-top"><span class="project-number">01 / AI</span><span class="project-status">Cybersecurity</span></div><h3>Phish Hunter AI</h3><p>An AI-powered cybersecurity prototype designed to assess suspicious emails, messages, URLs, and QR-code links, with risk scoring and security guidance.</p><div class="project-tags"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>ML</span></div><div class="project-links"><a href="https://github.com/goutham2442-star/phish-hunter-ai" target="_blank" rel="noopener noreferrer">View repository ↗</a></div></article>
+    <article class="project-card reveal"><div class="project-top"><span class="project-number">02 / WEB</span><span class="project-status">NGO Website</span></div><h3>InAmigos Foundation</h3><p>A responsive NGO website focused on presenting initiatives clearly and helping visitors explore donation and volunteering opportunities.</p><div class="project-tags"><span>React</span><span>Vite</span><span>CSS</span><span>Framer Motion</span></div><div class="project-links"><a href="https://github.com/goutham2442-star/InAmigos-Foundation-Official" target="_blank" rel="noopener noreferrer">View repository ↗</a></div></article>
+    <article class="project-card reveal"><div class="project-top"><span class="project-number">03 / ML</span><span class="project-status">Regression</span></div><h3>Used Car Price Prediction</h3><p>A supervised-learning project exploring used-car data and regression techniques to estimate vehicle prices through a practical ML workflow.</p><div class="project-tags"><span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Regression</span></div><div class="project-links"><a href="https://github.com/goutham2442-star/SL-Project" target="_blank" rel="noopener noreferrer">View repository ↗</a></div></article>
+    <article class="project-card reveal"><div class="project-top"><span class="project-number">04 / DATA</span><span class="project-status">Predictive Analytics</span></div><h3>Workforce Prediction System</h3><p>A data-informed workforce management project for forecasting resource needs, identifying workload risks, and highlighting possible skill gaps.</p><div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Analytics</span></div><div class="project-links"><a href="https://github.com/goutham2442-star/workforce-prediction-system" target="_blank" rel="noopener noreferrer">View repository ↗</a></div></article>
+    <article class="project-card reveal"><div class="project-top"><span class="project-number">05 / PRODUCTIVITY</span><span class="project-status">Productivity App</span></div><h3>LifeOS</h3><p>A personal productivity application concept focused on bringing everyday planning and useful tools into one organized experience.</p><div class="project-tags"><span>Flutter</span><span>Dart</span><span>Productivity</span></div><div class="project-links"><a href="https://github.com/goutham2442-star/lifeos" target="_blank" rel="noopener noreferrer">View repository ↗</a></div></article>
+    <article class="project-card reveal"><div class="project-top"><span class="project-number">06 / LEARNING</span><span class="project-status">Education</span></div><h3>StudyMind AI</h3><p>An AI-assisted study project concept designed to support learning and make study material easier to organize and use.</p><div class="project-tags"><span>AI</span><span>Learning Tools</span><span>Web</span></div><div class="project-links"><a href="https://github.com/goutham2442-star" target="_blank" rel="noopener noreferrer">Check repository ↗</a></div></article>
+    <article class="project-card reveal"><div class="project-top"><span class="project-number">07 / CAMPUS</span><span class="project-status">Campus Platform</span></div><h3>RegionOS</h3><p>A campus and university governance frontend concept for presenting campus services and workflows in a more organized digital experience.</p><div class="project-tags"><span>Frontend</span><span>Web Development</span><span>UI/UX</span></div><div class="project-links"><a href="https://github.com/goutham2442-star" target="_blank" rel="noopener noreferrer">Check repository ↗</a></div></article>
+  </div>
+</section>
+
+<section id="profiles" style="background:linear-gradient(160deg,#12096A 0%,#170C79 60%,#1A2A8A 100%)">
+  <div class="section-tag reveal">Find Me Online</div><h2 class="section-title reveal">Code, learn, <em>connect.</em></h2>
+  <div class="profile-card leetcode-card reveal">
+    <div class="leetcode-card-topline">
+      <div class="leetcode-brand"><div class="profile-icon" aria-hidden="true">LC</div><div><span class="leetcode-eyebrow">CODING JOURNEY</span><h3>LeetCode <span class="leetcode-subtitle">/ Problem-solving stats</span></h3><p>My public progress, refreshed live from my LeetCode profile.</p></div></div>
+      <span class="live-indicator"><span></span> LIVE PROFILE</span>
+    </div>
+    <div class="leetcode-live" id="leetcode-stats" aria-live="polite" aria-busy="true">
+      <div class="leetcode-loading"><span class="loading-spinner" aria-hidden="true"></span><span>Fetching public profile stats…</span></div>
+    </div>
+    <div class="leetcode-card-footer">
+      <span class="leetcode-updated" id="leetcode-updated">Stats are provided by a public stats service</span>
+      <div class="leetcode-actions">
+        <button type="button" class="leetcode-refresh" id="leetcode-refresh">↻ Refresh stats</button>
+        <a class="leetcode-profile-button" href="https://leetcode.com/u/goutham2442/" target="_blank" rel="noopener noreferrer">View LeetCode profile <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="profile-grid">
+    <a class="profile-card reveal" href="https://github.com/goutham2442-star" target="_blank" rel="noopener noreferrer"><div class="profile-icon" aria-hidden="true">GH</div><div><h3>GitHub</h3><p>Explore my repositories, project source code, and ongoing development work.</p><span class="profile-link">github.com/goutham2442-star ↗</span></div></a>
+    <a class="profile-card reveal" href="https://www.linkedin.com/in/potugari-goutham-gagan" target="_blank" rel="noopener noreferrer"><div class="profile-icon" aria-hidden="true">in</div><div><h3>LinkedIn</h3><p>Connect with me for professional updates, collaborations, and opportunities.</p><span class="profile-link">View LinkedIn ↗</span></div></a>
+    <a class="profile-card reveal" href="resume.pdf" download><div class="profile-icon" aria-hidden="true">CV</div><div><h3>Resume</h3><p>Download a PDF copy of my resume.</p><span class="profile-link">Download PDF ↓</span></div></a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-tag reveal">Contact</div><h2 class="section-title reveal">Let's <em>Connect</em></h2>
+  <div class="contact-layout">
+    <div class="contact-copy reveal"><p>Have a project idea, collaboration opportunity, or question about my work? Send me a message using the form. I look forward to hearing from you.</p>
+      <div class="contact-details"><div class="contact-detail"><strong>Email</strong><a href="mailto:gouthamgagan2442@gmail.com">gouthamgagan2442@gmail.com</a></div><div class="contact-detail"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/potugari-goutham-gagan" target="_blank" rel="noopener noreferrer">linkedin.com/in/potugari-goutham-gagan</a></div></div>
+    </div>
+    <!-- FormSubmit sends submissions by email after the destination address is verified.
+         If you prefer another provider, replace the form action with its endpoint. -->
+    <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/gouthamgagan2442@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New portfolio message — Goutham Gagan">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <div class="form-row">
+        <div class="form-field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Enter your name" required maxlength="100"></div>
+        <div class="form-field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="254"></div>
+      </div>
+      <div class="form-field"><label for="subject">Subject</label><input id="subject" name="subject" type="text" placeholder="What is this about?" required maxlength="150"></div>
+      <div class="form-field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Write your message here..." required maxlength="5000"></textarea></div>
+      <div class="contact-actions">
+        <button class="btn btn-primary" type="submit">Send message <span aria-hidden="true">↗</span></button>
+        <button class="btn btn-outline" type="button" id="email-fallback">Open in email app <span aria-hidden="true">↗</span></button>
+      </div>
+      <p class="form-note">The form uses FormSubmit and may require one-time email verification. If it is unavailable, use “Open in email app” to send the message directly from your email client.</p>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+<footer><a href="#hero" class="footer-logo">GG<span>.</span></a><p>© <span id="year"></span> Goutham Gagan · All rights reserved</p></footer>
+
+<script>
+const dot = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let ringX = mouseX;
+let ringY = mouseY;
+
+function moveCursor(event) {
+  mouseX = event.clientX;
+  mouseY = event.clientY;
+  if (!finePointer.matches || !dot || !ring) return;
+  dot.style.left = mouseX + 'px';
+  dot.style.top = mouseY + 'px';
+  dot.style.opacity = '1';
+  dot.style.visibility = 'visible';
+  ring.style.opacity = '1';
+  ring.style.visibility = 'visible';
+}
+
+document.addEventListener('mousemove', moveCursor, { passive: true });
+function animateCursor() {
+  if (finePointer.matches && ring) {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+  }
+  requestAnimationFrame(animateCursor);
+}
+if (finePointer.matches) animateCursor();
+if (finePointer.addEventListener) {
+  finePointer.addEventListener('change', () => {
+    if (!finePointer.matches) {
+      if (dot) { dot.style.opacity = '0'; dot.style.visibility = 'hidden'; }
+      if (ring) { ring.style.opacity = '0'; ring.style.visibility = 'hidden'; }
+    }
+  });
+}
+window.addEventListener('blur', () => document.body.classList.remove('cursor-hover'));
+
+const hoverTargets = document.querySelectorAll('a, button, input, textarea, .project-card, .skill-group, .profile-card');
+hoverTargets.forEach(target => {
+  target.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  target.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
+
+
+/* Scroll progress and current section navigation */
+const progressBar = document.getElementById('scroll-progress');
+function updateScrollProgress() {
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+  if (progressBar) progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+}
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
+window.addEventListener('resize', updateScrollProgress);
+updateScrollProgress();
+
+const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+const navSections = sectionLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+if ('IntersectionObserver' in window) {
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      sectionLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${entry.target.id}`) {
+          link.setAttribute('aria-current', 'location');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    });
+  }, { rootMargin: '-28% 0px -58% 0px', threshold: 0 });
+  navSections.forEach(section => sectionObserver.observe(section));
+}
+
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+
+const menuToggle=document.getElementById('menu-toggle');
+const navLinks=document.getElementById('nav-links');
+function closeMenu(){
+  navLinks.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded','false');
+  menuToggle.setAttribute('aria-label','Open navigation menu');
+}
+menuToggle.addEventListener('click',()=>{
+  const isOpen=navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded',String(isOpen));
+  menuToggle.setAttribute('aria-label',isOpen?'Close navigation menu':'Open navigation menu');
+});
+navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+window.addEventListener('resize',()=>{if(window.innerWidth>700)closeMenu()});
+
+const revealEls=document.querySelectorAll('.reveal,.edu-item');
+if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}
+    });
+  },{threshold:.12});
+  revealEls.forEach(el=>observer.observe(el));
+}else{revealEls.forEach(el=>el.classList.add('visible'))}
+
+document.getElementById('year').textContent=new Date().getFullYear();
+
+// Reliable manual contact fallback: opens the visitor's configured email app with fields filled in.
+const emailFallback = document.getElementById('email-fallback');
+if (emailFallback) {
+  emailFallback.addEventListener('click', () => {
+    const name = document.getElementById('name')?.value.trim() || '';
+    const email = document.getElementById('email')?.value.trim() || '';
+    const subject = document.getElementById('subject')?.value.trim() || 'Portfolio enquiry';
+    const message = document.getElementById('message')?.value.trim() || '';
+    const body = `${message}\n\nFrom: ${name}\nReply email: ${email}`;
+    const mailto = `mailto:gouthamgagan2442@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  });
+}
+
+
+
+/* LeetCode stats loader with API fallback, timeout, normalization, and manual retry */
+(() => {
+  const box = document.getElementById('leetcode-stats');
+  const refreshButton = document.getElementById('leetcode-refresh');
+  const updatedLabel = document.getElementById('leetcode-updated');
+  if (!box) return;
+
+  const endpoints = [
+    {
+      url: 'https://leetcode-stats.tashif.codes/goutham2442',
+      parse: json => json?.data ?? json
+    },
+    {
+      url: 'https://leetcode-stats-api.onrender.com/goutham2442',
+      parse: json => json?.data ?? json
+    },
+    {
+      url: 'https://leetcode-stats-api.herokuapp.com/goutham2442',
+      parse: json => json?.data ?? json
+    }
+  ];
+
+  const unwrapStats = payload => {
+    const candidates = [payload, payload?.data, payload?.matchedUser, payload?.data?.matchedUser, payload?.stats, payload?.data?.stats];
+    return candidates.find(candidate => candidate && typeof candidate === 'object' &&
+      (candidate.totalSolved != null || candidate.total_solved != null || candidate.total != null)) || payload?.data || payload;
+  };
+
+  const numberFrom = (obj, keys) => {
+    for (const key of keys) {
+      const raw = obj?.[key];
+      if (raw === undefined || raw === null || raw === '') continue;
+      const value = Number(raw);
+      if (Number.isFinite(value) && value >= 0) return Math.floor(value);
+    }
+    return null;
+  };
+
+  function showLoading() {
+    box.setAttribute('aria-busy', 'true');
+    box.innerHTML = '<div class="leetcode-loading"><span class="loading-spinner" aria-hidden="true"></span><span>Fetching public profile stats…</span></div>';
+    updatedLabel.textContent = 'Connecting to public LeetCode stats services…';
+    if (refreshButton) refreshButton.disabled = true;
+  }
+
+  function showStats(stats) {
+    const source = unwrapStats(stats);
+    const total = numberFrom(source, ['totalSolved', 'total_solved', 'total']);
+    const easy = numberFrom(source, ['easySolved', 'easy_solved', 'easy']);
+    const medium = numberFrom(source, ['mediumSolved', 'medium_solved', 'medium']);
+    const hard = numberFrom(source, ['hardSolved', 'hard_solved', 'hard']);
+    if ([total, easy, medium, hard].some(v => v === null)) throw new Error('The stats response was incomplete.');
+
+    box.innerHTML = `
+      <div class="leetcode-metric total"><strong>${total.toLocaleString()}</strong><span>Problems solved</span></div>
+      <div class="leetcode-metric easy"><strong>${easy.toLocaleString()}</strong><span>Easy</span></div>
+      <div class="leetcode-metric medium"><strong>${medium.toLocaleString()}</strong><span>Medium</span></div>
+      <div class="leetcode-metric hard"><strong>${hard.toLocaleString()}</strong><span>Hard</span></div>`;
+    box.setAttribute('aria-busy', 'false');
+    updatedLabel.textContent = `Last fetched ${new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})} · Public stats may be cached`;
+  }
+
+  async function fetchFrom(endpoint) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+    try {
+      const response = await fetch(endpoint.url, {
+        method: 'GET',
+        headers: { 'Accept': 'application/json' },
+        signal: controller.signal,
+        cache: 'no-store'
+      });
+      if (!response.ok) throw new Error(`Stats service returned ${response.status}.`);
+      const json = await response.json();
+      if (json?.status && String(json.status).toLowerCase() === 'error') {
+        throw new Error(json.message || 'The stats service could not find this profile.');
+      }
+      const stats = endpoint.parse(json);
+      if (!stats || typeof stats !== 'object') throw new Error('Invalid stats response.');
+      return stats;
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  }
+
+  async function loadStats() {
+    showLoading();
+    let lastError = null;
+    for (const endpoint of endpoints) {
+      try {
+        const stats = await fetchFrom(endpoint);
+        showStats(stats);
+        if (refreshButton) refreshButton.disabled = false;
+        return;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    box.setAttribute('aria-busy', 'false');
+    box.innerHTML = `<div class="leetcode-error"><strong>Live stats are temporarily unavailable.</strong>The public stats services did not respond. Your profile link still works; use Refresh stats to try again later.<img class="leetcode-svg-fallback" src="https://leetcode-stats.tashif.codes/goutham2442/stats/svg?theme=dark" alt="LeetCode statistics card, if the stats service is available" loading="lazy" onerror="this.remove()"></div>`;
+    updatedLabel.textContent = 'Could not connect to a stats provider';
+    if (refreshButton) refreshButton.disabled = false;
+    console.warn('LeetCode stats could not be loaded:', lastError);
+  }
+
+  if (refreshButton) refreshButton.addEventListener('click', loadStats);
+  loadStats();
+  // Refresh at a reasonable interval while the page remains open.
+  setInterval(() => {
+    if (document.visibilityState === 'visible') loadStats();
+  }, 10 * 60 * 1000);
+})();
+
+</script>
+</body>
+</html>
